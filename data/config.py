@@ -774,6 +774,16 @@ yolact_resnet50_config = yolact_base_config.copy({
 })
 
 
+kaggle_resnet50_2 = yolact_resnet50_config.copy({
+    'name': 'kaggle_resnet50_2',
+    # Dataset stuff
+    'dataset': kaggle_dataset_coco,
+    'num_classes': len(kaggle_dataset_coco.class_names) + 1,
+
+    # Image Size
+    'max_size': 512,
+})
+
 yolact_resnet50_pascal_config = yolact_resnet50_config.copy({
     'name': None, # Will default to yolact_resnet50_pascal
     
