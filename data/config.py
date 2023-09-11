@@ -138,7 +138,7 @@ kaggle_dataset_coco = dataset_base.copy({
 
     'class_names': ('No Damage', 'Damage'),
 
-    'label_map': [0, 1]
+    'label_map': [0, 1],
 
     'label_map': COCO_LABEL_MAP
 })
