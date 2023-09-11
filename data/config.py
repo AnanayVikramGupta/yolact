@@ -762,7 +762,7 @@ yolact_darknet53_config = yolact_base_config.copy({
 yolact_resnet50_config = yolact_base_config.copy({
     'name': 'yolact_resnet50',
 
-    'backbone': resnet50_backbone.copy({
+    'backbone': resnet50_backbone_2.copy({
         'selected_layers': list(range(1, 4)),
         
         'pred_scales': yolact_base_config.backbone.pred_scales,
@@ -779,6 +779,16 @@ kaggle_resnet50_2 = yolact_resnet50_config.copy({
     # Dataset stuff
     'dataset': kaggle_dataset_coco,
     'num_classes': len(kaggle_dataset_coco.class_names) + 1,
+
+    'backbone': resnet50_backbone.copy({
+        'selected_layers': list(range(1, 4)),
+        
+        'pred_scales': yolact_base_config.backbone.pred_scales,
+        'pred_aspect_ratios': yolact_base_config.backbone.pred_aspect_ratios,
+        'use_pixel_scales': True,
+        'preapply_sqrt': False,
+        'use_square_anchors': True, # This is for backward compatability with a bug
+    }),
 
     # Image Size
     'max_size': 512,
