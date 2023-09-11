@@ -275,6 +275,14 @@ resnet50_backbone = resnet101_backbone.copy({
     'transform': resnet_transform,
 })
 
+resnet50_backbone_2 = resnet101_backbone.copy({
+    'name': 'ResNet50_2',
+    'path': '/kaggle/inputs/yolact-weights/yolact_resnet50_54_800000.pth',
+    'type': ResNetBackbone,
+    'args': ([3, 4, 6, 3],),
+    'transform': resnet_transform,
+})
+
 resnet50_dcnv2_backbone = resnet50_backbone.copy({
     'name': 'ResNet50_DCNv2',
     'args': ([3, 4, 6, 3], [0, 4, 6, 3]),
